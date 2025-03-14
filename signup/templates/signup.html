@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Înregistrare</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{% url 'home' %}" class="navbar-logo">CARFUSION.RO</a>
+        </div>
+    </nav>
+    <div class="login-container">
+        <h2>Înregistrare</h2>
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="error">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="id_username" class="utsipar">Nume utilizator:</label>
+            <input type="text" name="username" id="id_username" required>
+
+            <label for="id_first_name" class="utsipar">Nume:</label>
+            <input type="text" name="first_name" id="id_first_name" required>
+
+            <label for="id_last_name" class="utsipar">Prenume:</label>
+            <input type="text" name="last_name" id="id_last_name" required>
+
+            <label for="id_email" class="utsipar">Email:</label>
+            <input type="email" name="email" id="id_email" required>
+
+            <label for="id_password1" class="utsipar">Parolă:</label>
+            <input type="password" name="password1" id="id_password1" required>
+
+            <label for="id_password2" class="utsipar">Confirmă parola:</label>
+            <input type="password" name="password2" id="id_password2" required>
+
+            <button type="submit" class="login-btn">Înregistrează-te</button>
+        </form>
+
+        <p class="auth">Ai deja un cont? <a href="{% url 'login' %}">Autentificare</a></p>
+    </div>
+
+    <!-- JavaScript pentru schimbarea culorii navbar-ului la click -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+
+            // Adăugăm un eveniment de click pe navbar
+            navbar.addEventListener('click', function() {
+                navbar.classList.toggle('clicked'); // Când este apăsat, schimbă culoarea navbar-ului
+            });
+        });
+    </script>
+</body>
+</html>

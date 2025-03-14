@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaugă Mașină</title>
+    <link rel="stylesheet" href="{% static 'css/sellcar.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{% url 'home' %}" class="navbar-logo">CARFUSION.RO</a>
+        </div>
+    </nav>
+
+    <div class="sellcar-container">
+        <h2>Adaugă Mașina Ta</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-container">
+                <div class="form-left">
+                    <label for="marca">Marca:</label>
+                    <input type="text" name="marca" id="marca" required>
+
+                    <label for="model">Model:</label>
+                    <input type="text" name="model" id="model" required>
+
+                    <label for="an">An fabricație:</label>
+                    <input type="number" name="an" id="an" required min="1950" max="2025">
+
+                    <label for="kilometri">Kilometrii:</label>
+                    <input type="number" name="kilometri" id="kilometri" required>
+
+                    <label for="putere_motor">Putere Motor (CP):</label>
+                    <input type="number" name="putere_motor" id="putere_motor" required min="1">
+
+                </div>
+
+                <div class="form-right">
+                    <label for="capacitate_motor">Capacitate Motor (cm³):</label>
+                    <input type="number" name="capacitate_motor" id="capacitate_motor" required min="500">
+
+                    <label for="tip_caroserie">Tip Caroserie:</label>
+                    <select name="tip_caroserie" id="tip_caroserie" required>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Hatchback">Hatchback</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Cabrio">Cabrio</option>
+                        <option value="Pickup">Pickup</option>
+                        <option value="Van">Van</option>
+                        <option value="Break">Break</option>
+                    </select>
+
+                    <label for="pret">Preț(€):</label>
+                    <input type="number" name="pret" id="pret" required min="1" max = "10000000">
+
+                    <label for="imagine">Imagine:</label>
+                    <input type="file" name="imagine" id="imagine" accept="image/*">
+
+                    <label for="descriere">Descriere:</label>
+                    <textarea name="descriere" id="descriere" rows="3" required></textarea>
+
+
+                </div>
+            </div>
+
+            <button type="submit" class="sellcar-btn">Adaugă Mașina</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ car.marca }} {{ car.model }} - Detalii</title>
+    <link rel="stylesheet" href="{% static 'css/car_detail.css' %}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="{% url 'home' %}" class="logo">CARFUSION.RO</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Acasă</a></li>
+                    <li><a href="#">Adaugă anunț</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="car-details">
+            <div class="car-image">
+                {% if car.imagine %}
+                    <img src="{{ car.imagine.url }}" alt="{{ car.marca }} {{ car.model }}">
+                {% endif %}
+            </div>
+
+            <div class="car-info">
+                <h1>{{ car.marca }} {{ car.model }}</h1>
+                <p class="price">{{ car.pret }} €</p>
+                <p class="year">An: {{ car.an }}</p>
+                <p class="kilometri">Kilometri: {{ car.kilometri }} km</p>
+                <p class="descriere">{{ car.descriere }}</p>
+            </div>
+        </section>
+
+        <section class="car-details-extra">
+            <h2>Specificații suplimentare</h2>
+            <ul>
+                <li>Putere motor: {{ car.putere_motor }} CP</li>
+                <li>Capacitate motor: {{ car.capacitate_motor }} cm³</li>
+                <li>Tip caroserie: {{ car.tip_caroserie }}</li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Contactează vânzătorul</h2>
+            <form action="/contact" method="POST">
+                <input type="text" name="nume" placeholder="Nume" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="mesaj" placeholder="Mesaj" required></textarea>
+                <button type="submit">Trimite mesaj</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CARFUSION.RO</p>
+    </footer>
+</body>
+</html>

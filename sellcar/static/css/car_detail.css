@@ -1,0 +1,127 @@
+/* General */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main content */
+.car-details {
+    display: flex;
+    margin: 30px;
+}
+
+.car-image img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.car-info {
+    margin-left: 30px;
+}
+
+.car-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.car-info p {
+    font-size: 1.2rem;
+}
+
+.car-details-extra {
+    margin: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.car-details-extra ul {
+    list-style: none;
+}
+
+.car-details-extra ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Contact form */
+.contact {
+    margin: 30px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact input, .contact textarea {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact button {
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .car-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .car-image img {
+        width: 100%;
+    }
+
+    .car-info {
+        margin-left: 0;
+    }
+}

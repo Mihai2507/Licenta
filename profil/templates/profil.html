@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="{% static 'css/profil.css' %}">
+</head>
+<body>
+    <!-- Navbar doar cu logo -->
+    <nav class="secondary-nav">
+        <div class="nav-center">
+            <a href="{% url 'home' %}" class="logo">CARFUSION.RO</a>
+        </div>
+    </nav>
+
+    <!-- Conținutul profilului -->
+    <div class="container">
+        <div class="card">
+            <div class="left">
+                <h2>{{ username }}</h2>
+            </div>
+            <div class="right">
+                <h3>Informații</h3>
+                <p><strong>Nume:</strong> {{ nume }}</p>
+                <p><strong>Prenume:</strong> {{ prenume }}</p>
+                <p><strong>Email:</strong> {{ email }}</p>
+
+                <!-- Butonul de editare -->
+                <a href="#" class="edit-btn" id="edit-btn">Editează datele</a>
+
+                <!-- Formularul de editare -->
+                <form id="edit-form" class="edit-form" method="POST" style="display: none;">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nume">Nume</label>
+                        <input type="text" id="nume" name="nume" value="{{ nume }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenume">Prenume</label>
+                        <input type="text" id="prenume" name="prenume" value="{{ prenume }}" required>
+                    </div>
+                    <button type="submit" class="save-btn">Salvează</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'scripts/profil.js' %}"></script>
+</body>
+</html>

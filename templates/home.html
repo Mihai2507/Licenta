@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carfusion.ro</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="secondary-nav">
+            <div class="nav-left">
+                <ul>
+                    <li><a href="#video2">VINDE</a></li>
+                    <li><a href="#video3">CUMPARA</a></li>
+                    <li><a href="#video4">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-center">
+                <a href="#video1" class="logo">CARFUSION.RO</a>
+            </div>
+
+            <div class="nav-right">
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'profil' %}">PROFIL</a></li>
+                       <li>
+                            <a href="{% url 'logout' %}" class="logout-btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">DECONECTARE</a>
+                            <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                                {% csrf_token %}
+                            </form>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'signup' %}">INREGISTREAZA-TE</a></li>
+                        <li><a href="{% url 'login' %}">AUTENTIFICA-TE</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="video1" class="video1">
+        <div class="video1-container">
+            <video autoplay muted>
+                <source src="{% static 'images/cumpara.mp4' %}" type="video/mp4">
+            </video>
+            <div class="moto-text">Mașina potrivită. Prețul corect. Fără bătăi de cap. Totul într-un singur loc!</div>
+            <div class="sell-box">
+                <p>Vinzi o mașină? E simplu și rapid!</p>
+                <p>📌 Postează anunțul în doar câteva minute, fără stres și fără pierdere de timp!</p>
+                <p>📌 Profită de cea mai bună platformă de vânzare auto!</p>
+                <p>✅ Fără bătăi de cap, fără timp pierdut!</p>
+                <div class="cta-buttons1">
+                    <a href="#video2">Vinde acum</a>
+                </div>
+            </div>
+            <div class="buy-box">
+                <p>Cumperi o mașină? Găsește oferta perfectă!</p>
+                <p>📌 Găsește cele mai bune oferte pentru mașina dorită.</p>
+                <p>📌 Cele mai bune prețuri, cele mai noi oferte, toate într-un singur loc!</p>
+                <p>✅ Compară rapid, alege inteligent!</p>
+                <div class="cta-buttons2">
+                    <a href="#video3">Caută oferte</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video2" class="video2">
+        <div class="video2-container">
+            <video autoplay muted loop>
+                <source src="{% static 'images/vinde.mp4' %}" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+            <div class="sell-message">
+                <h2>Vrei să îți vinzi mașina?</h2>
+                <p>Aici o poți face!</p>
+                <p>Publică un anunț și așteaptă să fii contactat de cumpărătorii noștri!</p>
+                {% if user.is_authenticated %}
+                    <a href={% url 'sellcar' %}  class="cta-sell">Începe acum</a>
+                {% else %}
+                    <a href={% url 'login' %}  class="cta-sell">Începe acum</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    
+    <section id="video3" class="video3">
+        <div class="video3-container">
+            <video autoplay muted loop>
+                <source src="{% static 'images/video.mp4' %}" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+            <div class="buy-message">
+                <h2>Cauți mașina perfectă?</h2>
+                <p>Aici o poți găsi! Explorează anunțurile noastre și contactează direct vânzătorii.</p>
+                <a href={% url 'login' %}  class="cta-buy">Vezi anunțurile</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="video4" class="video4">
+        <div class="video4-container">
+            <video autoplay muted>
+                <source src="{% static 'images/contact.mp4' %}" type="video/mp4">
+            </video>
+            <div class="contact-container">
+                <div id="notification" class="notification" style="display: none;">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+                <h2>Contactează-ne</h2>
+                <p>Completează formularul de mai jos pentru a lua legătura cu noi.</p>
+                <form action="/send-message/" method="POST">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <label for="nume">Nume</label>
+                        <input type="text" id="nume" name="nume" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="prenume">Prenume</label>
+                        <input type="text" id="prenume" name="prenume" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="telefon">Numar de telefon</label>
+                        <input type="text" id="telefon" name="telefon" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="mesaj">Mesaj</label>
+                        <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Trimite</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <script src="{% static 'scripts/home.js' %}"></script>
+    <script src="{% static 'scripts/vinde.js' %}"></script>
+    <script src="{% static 'scripts/cumpara.js' %}"></script>
+    <script src="{% static 'scripts/contact.js' %}"></script>
+    <script src="{% static 'scripts/scroll.js' %}"></script>
+    <script src="{% static 'scripts/redirect.js' %}"></script>
+    <script src="{% static 'scripts/contact_message.js' %}"></script>
+</body>
+
+</html>

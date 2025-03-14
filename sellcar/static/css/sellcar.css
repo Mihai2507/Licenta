@@ -1,0 +1,156 @@
+body {
+    background: url('/static/image/sellcar.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: rgba(51, 51, 51, 0.6);
+    padding: 15px 0;
+    transition: background-color 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+}
+
+.navbar-logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sellcar-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(122, 122, 122, 0.9);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 80vw;
+    max-width: 900px;
+}
+
+.sellcar-container h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.form-left, .form-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-left label,
+.form-right label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+.form-left input,
+.form-right select,
+.form-right input,
+.form-right textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 14px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+}
+
+.form-right input[type="file"] {
+    width: 94%;
+    max-width: 400px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-left input::placeholder,
+.form-right textarea::placeholder {
+    color: #ccc;
+}
+
+.sellcar-btn {
+    width: 100%;
+    padding: 14px;
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.sellcar-btn:hover {
+    background: #cc0000;
+}
+
+.form-right select option {
+    background: #444;
+    color: white;
+    font-size: 16px;
+}
+
+.form-right textarea {
+    resize: none;
+}
+
+input[name="pret"],
+input[name="imagine"],
+textarea[name="descriere"],
+input[name="capacitate_motor"]{
+    width: 92%;
+}
+
+.car-detail-container {
+    background: rgba(122, 122, 122, 0.9);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.car-detail-container h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.car-detail-container img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}

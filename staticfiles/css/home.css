@@ -1,0 +1,329 @@
+html, body {
+    font-family: Bahnschrift, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+    background: black;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---------- NAVBAR ---------- */
+nav.secondary-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- NAVBAR STRUCTURE ---------- */
+.nav-left, .nav-right {
+    display: flex;
+    margin-right: 30px;
+}
+
+.nav-left ul, .nav-right ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.nav-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* ---------- LOGO ---------- */
+.logo {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.logo:hover {
+    color: grey;
+}
+
+nav.secondary-nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav.secondary-nav ul li a:hover {
+    color: #555;
+}
+
+.video1, .video2, .video3, .video4{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.video1-container, .video2-container, .video3-container, .video4-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.video1-container video, .video2-container video, .video3-container video, .video4-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.5s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.contact-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px; /* Ușor mărit */
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 94%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+}
+
+.btn-submit {
+    background: red;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background: darkred;
+}
+
+/* ---------- SECȚIUNEA VIDEO 1 (CASUTA MESAJ) ---------- */
+/* ---------- MOTO INITIAL ---------- */
+.moto-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px 45px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    opacity: 1;
+    animation: fade-out 1.5s ease-out forwards;
+    animation-delay: 4s;
+}
+
+
+
+/* ---------- SECȚIUNEA VIDEO 1 (CASUTA MESAJ) ---------- */
+.sell-box, .buy-box {
+    position: absolute;
+
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    max-width: 420px;
+
+
+    opacity: 0;
+
+    animation: fade-in-up 1s ease-out forwards;
+    animation-delay: 5s; /* După ce dispare moto-ul */
+}
+
+.sell-box{
+    top: 35%;
+    left: 5%;
+}
+
+.buy-box{
+    top: 35%;
+    right: 5%;
+}
+
+/* ---------- Animații ---------- */
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.promo-box p {
+    margin: 10px 0;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.promo-box , .cta-buttons1, .cta-buttons2 {
+    margin-top: 15px;
+}
+
+.promo-box {
+    display: inline-block;
+    background: red;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+
+.cta-buttons1 a, .cta-buttons2 a {
+   display: inline-block;
+    background: red;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+
+.promo-box .cta-buttons1 a:hover, .cta-buttons2 a:hover {
+    background: darkred;
+}
+
+.video2-container .overlay, .video3-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+
+
+.sell-message, .buy-message {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 60px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    max-width: 750px;
+    font-size: 22px;
+}
+
+.sell-message h2, .buy-message h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.sell-message p, .buy-message p {
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.cta-sell, .cta-buy {
+    display: inline-block;
+    background: red;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-sell:hover, cta-bu:hover {
+    background: darkred;
+}
+
+.logout-btn {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+

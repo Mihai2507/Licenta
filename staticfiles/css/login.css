@@ -1,0 +1,122 @@
+/* Styling for the body */
+body {
+    background: url('/static/images/login1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 15px 0;
+    transition: background-color 0.3s;
+}
+
+.navbar.clicked {
+    background-color: rgba(128, 128, 128, 0.61);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-logo {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Hover efect pentru logo */
+.navbar-logo:hover {
+    color: #ddd;  /* Gri deschis la hover */
+}
+
+/* Login container styling */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(122, 122, 122);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 350px;
+}
+
+.login-container h2 {
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.login-container label {
+    color: #ddd;
+    display: block;
+    text-align: left;
+    margin-bottom: 1px;
+    font-weight: bold;
+}
+
+.login-container input {
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background 0.3s;
+    align-items: center;
+}
+
+.login-container input::placeholder {
+    color: #ccc;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-container button:hover {
+    background: #cc0000;
+}
+
+.login-links {
+    margin-top: 10px;
+}
+
+.login-links a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+.auth a {
+    color: #ffffff;
+}
+
+.auth {
+    color: white;
+}
